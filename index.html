@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080C24" />
+  <title>Svacraft — Craft Yourself. A real-life RPG fitness tracker</title>
+  <meta name="description" content="Svacraft turns every workout into a quest. Earn EXP, level up, climb from E-Rank to National Level Hunter, and collect titles for what you actually achieve. Craft Yourself. Offline. No account. No cloud." />
+  <meta property="og:title" content="Svacraft — Craft Yourself." />
+  <meta property="og:description" content="A real-life RPG fitness tracker built around the System. Every rep earns EXP. Every quest makes you stronger. Craft Yourself." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="sections.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- SVG icon sprite -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 11-13h-8l0-7z"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11"/><path d="m21 21-1-1"/><path d="m3 3 1 1"/><path d="m18 22 4-4"/><path d="m2 6 4-4"/><path d="m3 10 7-7"/><path d="m14 21 7-7"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8"/><path d="M8 11h5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8z"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 15 4-4 4 3 6-7"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A3.5 3.5 0 0 0 12 18a3.5 3.5 0 0 0 3.5-3.5c0-3-3.5-5.5-3.5-9 0 0-5 3.5-5 9z"/><path d="M12 2c1 4 5 6 5 10.5a5 5 0 0 1-10 0C7 8 11 6 12 2z"/></symbol>
+  </svg>
+
+  <!-- Boot sequence -->
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot__scan"></div>
+    <div class="boot__inner">
+      <div class="boot__emblem"><img src="assets/logo.png" alt="" width="96" height="96" /></div>
+      <p class="boot__brand">SVACRAFT</p>
+      <p class="boot__sub">CRAFT YOURSELF // SYSTEM INITIALISING</p>
+      <div class="boot__log" id="bootLog"></div>
+      <div class="boot__bar"><i id="bootBar"></i></div>
+      <p class="boot__hint">click anywhere to skip</p>
+    </div>
+  </div>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="Svacraft home">
+      <span class="brand__mark"><img src="assets/logo.png" alt="" width="40" height="40" /></span>
+      <span class="brand__text"><strong>SVACRAFT</strong><small>CRAFT YOURSELF</small></span>
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <a class="nav__link" href="#story">Story</a>
+      <a class="nav__link" href="#system">System</a>
+      <a class="nav__link" href="#screens">Screens</a>
+      <a class="nav__link" href="#ranks">Ranks</a>
+      <a class="nav__link" href="#codex">Codex</a>
+      <a class="nav__link" href="#privacy">Privacy</a>
+      <a class="nav__mobile-cta" href="#arise">Craft Yourself <svg class="icon"><use href="#i-arrow"/></svg></a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn--ghost btn--small header-cta" type="button" data-open-install>Get the app</button>
+      <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="awakening" aria-labelledby="heroTitle">
+      <div class="hero__bg" aria-hidden="true">
+        <canvas id="starfield"></canvas>
+        <div class="hero__grid"></div>
+        <div class="hero__vignette"></div>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="system-note reveal"><span class="pulse-dot"></span> SYSTEM NOTIFICATION <span class="slash">//</span> HUNTER CANDIDATE DETECTED</p>
+          <h1 class="hero__title reveal" id="heroTitle">
+            <span class="hero__kicker">You have been chosen.</span>
+            <span class="hero__arise" data-text="CRAFT">CRAFT</span>
+            <span class="hero__arise hero__arise--slogan" data-text="YOURSELF">YOURSELF</span>
+          </h1>
+          <p class="hero__lede reveal">Svacraft is a real-life RPG fitness tracker built to help you craft yourself. Every workout becomes a quest. Every quest earns EXP. Every level takes you closer to the rank you were always meant to hold.</p>
+          <p class="hero__privacy reveal"><svg class="icon"><use href="#i-shield"/></svg> No account. No cloud. No one watching.</p>
+          <div class="hero__actions reveal">
+            <a class="btn btn--primary" href="#trial">Accept the call <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="#system">Explore the System</a>
+          </div>
+          <div class="hero__stats reveal" aria-label="Svacraft at a glance">
+            <div class="hero-stat"><strong data-count-to="8">0</strong><span>Ranks</span></div>
+            <div class="hero-stat"><strong data-count-to="12">0</strong><span>Titles</span></div>
+            <div class="hero-stat"><strong data-count-to="5">0</strong><span>Stats</span></div>
+            <div class="hero-stat"><strong data-count-to="100" data-suffix="%">0</strong><span>Offline</span></div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal" aria-hidden="true">
+          <div class="portal-scene" id="portalScene">
+            <div class="hud-chip hud-chip--tl"><span>SYS.STATUS</span><strong class="glow-cyan">AWAITING</strong></div>
+            <div class="hud-chip hud-chip--tr"><span>RANK</span><strong>E</strong></div>
+            <div class="hud-chip hud-chip--bl"><span>LEVEL</span><strong>01</strong></div>
+            <div class="hud-chip hud-chip--br"><span>EXP</span><strong>0 / 100</strong></div>
+
+            <div class="portal">
+              <span class="portal__ticks"></span>
+              <span class="portal__ring portal__ring--outer"></span>
+              <span class="portal__ring portal__ring--mid"></span>
+              <span class="portal__ring portal__ring--inner"></span>
+              <span class="portal__orbit"><i></i><i></i><i></i></span>
+              <span class="portal__core"></span>
+              <span class="portal__logo"><img src="assets/logo.png" alt="Svacraft emblem" width="260" height="260" /></span>
+              <span class="portal__scan"></span>
+            </div>
+
+            <div class="portal-caption">
+              <span class="portal-caption__line"></span>
+              <span>THE SYSTEM HAS FOUND YOU</span>
+              <span class="portal-caption__line"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#story" aria-label="Scroll to the story"><span></span>SCROLL TO AWAKEN</a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>CRAFT YOURSELF</span><i>✦</i><span>LEVEL UP</span><i>✦</i><span>FULL CLEAR</span><i>✦</i><span>RANK UP</span><i>✦</i><span>NO SHORTCUTS</span><i>✦</i><span>CRAFT YOURSELF</span><i>✦</i><span>LEVEL UP</span><i>✦</i><span>FULL CLEAR</span><i>✦</i><span>RANK UP</span><i>✦</i><span>NO SHORTCUTS</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- STORY -->
+    <section class="section story" id="story" aria-labelledby="storyTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">01 <span>//</span> THE AWAKENING</p>
+          <h2 class="section-title" id="storyTitle">One morning, the world kept its shape.<br /><em>You didn&rsquo;t.</em></h2>
+          <p class="section-lede">There is no gate in the sky. No dungeon in the alley. But the System found you anyway — in the quiet moment before you decide to move.</p>
+        </header>
+
+        <div class="chapters">
+          <article class="chapter reveal">
+            <div class="chapter__marker"><span>01</span><i></i></div>
+            <div class="chapter__body">
+              <p class="chapter__label">THE FIRST NOTICE</p>
+              <h3>A hunter is registered.</h3>
+              <p>First launch asks only what the System needs: a name, age, weight, height. No email. No password. No cloud sync. In seconds, a hunter card is forged — Level 1, E-Rank, zero EXP.</p>
+              <p class="chapter__aside">The rest is not given. The rest is <strong>earned</strong>.</p>
+            </div>
+            <div class="chapter__visual">
+              <div class="system-panel hunter-card">
+                <div class="panel-top"><span><i class="live-dot"></i> SYSTEM</span><span>HUNTER FILE</span></div>
+                <div class="hunter-card__main">
+                  <div class="hunter-card__avatar">Y</div>
+                  <div>
+                    <p class="micro">HUNTER</p>
+                    <h4>YOU</h4>
+                    <p class="micro muted">STATUS: AWAITING FIRST QUEST</p>
+                  </div>
+                  <div class="hunter-card__rank">E</div>
+                </div>
+                <div class="hunter-card__bars">
+                  <div><span>LEVEL</span><strong>01</strong></div>
+                  <div><span>EXP</span><strong>0 / 100</strong></div>
+                  <div><span>STREAK</span><strong>0 DAYS</strong></div>
+                </div>
+                <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--br"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter__marker"><span>02</span><i></i></div>
+            <div class="chapter__body">
+              <p class="chapter__label">THE DAILY QUEST</p>
+              <h3>Discipline becomes visible.</h3>
+              <p>Your active plans wake up with the day. Each one becomes a quest: exercises, target volume, EXP reward. Finish it and the System writes it into your history.</p>
+              <p>Miss a day and the streak breaks. Return and the chain begins again. Nothing is hidden. Nothing is forgotten.</p>
+            </div>
+            <div class="chapter__visual">
+              <div class="system-panel quest-card">
+                <div class="panel-top"><span><i class="live-dot"></i> DAILY QUEST</span><span>WEDNESDAY</span></div>
+                <div class="quest-card__title"><span class="micro muted">TODAY&rsquo;S ASSIGNMENT</span><h4>Full Body / Day 03</h4></div>
+                <ul class="quest-mini">
+                  <li><span class="quest-mini__check done"><svg class="icon"><use href="#i-check"/></svg></span><span>Push-ups <small>50 reps</small></span><b>+120</b></li>
+                  <li><span class="quest-mini__check done"><svg class="icon"><use href="#i-check"/></svg></span><span>Dead hangs <small>3 × 40 sec</small></span><b>+90</b></li>
+                  <li><span class="quest-mini__check"></span><span>5 km run <small>Zone 2</small></span><b>+210</b></li>
+                </ul>
+                <div class="quest-card__foot"><span>2 OF 3 COMPLETE</span><span class="glow-gold">+420 EXP IN RANGE</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter__marker"><span>03</span><i></i></div>
+            <div class="chapter__body">
+              <p class="chapter__label">THE FULL CLEAR</p>
+              <h3>The System rewards the whole.</h3>
+              <p>Complete every main exercise and a 10% full-clear bonus lands on top of the quest. Partial work still earns its share — the System does not deal in zeroes.</p>
+              <div class="formula">
+                <span>FULL CLEAR</span>
+                <code>floor(RAW EXP × 0.10)</code>
+                <strong>420 → +42 BONUS</strong>
+              </div>
+            </div>
+            <div class="chapter__visual">
+              <div class="system-panel bonus-card">
+                <div class="bonus-card__burst"><span>+42</span><small>BONUS EXP</small></div>
+                <p class="micro muted">FULL CLEAR ACHIEVED</p>
+                <h4>Every main exercise complete.</h4>
+                <div class="bonus-card__bar"><i style="--fill: 100%"></i></div>
+                <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--br"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter__marker"><span>04</span><i></i></div>
+            <div class="chapter__body">
+              <p class="chapter__label">THE PRICE OF INACTION</p>
+              <h3>The System remembers.</h3>
+              <p>A missed quest with a penalty attached will take its EXP the next morning. It is a receipt, not a punishment. EXP never falls below zero.</p>
+              <p>No guilt spiral. No fresh account. Just the consequences of the path you chose — and the chance to choose again.</p>
+            </div>
+            <div class="chapter__visual">
+              <div class="system-panel penalty-card">
+                <div class="penalty-card__icon"><svg class="icon"><use href="#i-bolt"/></svg></div>
+                <div>
+                  <p class="micro danger">QUEST MISSED</p>
+                  <h4>Penalty applied: <span class="danger">−25 EXP</span></h4>
+                  <p class="micro muted">EXP floor reached. No further deduction.</p>
+                </div>
+                <div class="penalty-card__bar"><i></i></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter reveal">
+            <div class="chapter__marker"><span>05</span><i></i></div>
+            <div class="chapter__body">
+              <p class="chapter__label">THE ASCENT</p>
+              <h3>Rank is a receipt for the work.</h3>
+              <p>Levels unlock ranks. Ranks unlock your place in the story. Between them: five stats, twelve titles, nine belts, and every session you ever showed up for.</p>
+              <p>From E-Rank to National Level, the System keeps the whole ledger. The only thing it cannot do is move for you.</p>
+            </div>
+            <div class="chapter__visual">
+              <div class="system-panel ascent-card">
+                <p class="micro muted">CURRENT ASCENT</p>
+                <div class="ascent-card__ranks" aria-hidden="true">
+                  <span style="--c:#9E9E9E">E</span><span style="--c:#4CAF50">D</span><span style="--c:#2196F3">C</span><span style="--c:#9C27B0">B</span><span style="--c:#FF9800">A</span><span style="--c:#FFD700">S</span><span style="--c:#FF6B6B">SS</span><span style="--c:#00F5FF">N</span>
+                </div>
+                <div class="ascent-card__line"><i></i></div>
+                <div class="ascent-card__foot"><span>LEVEL 01</span><span>THE ONLY WAY IS UP</span></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE TRIAL -->
+    <section class="section trial" id="trial" aria-labelledby="trialTitle">
+      <div class="trial__aura" aria-hidden="true"></div>
+      <div class="container">
+        <header class="section-head section-head--center reveal">
+          <p class="eyebrow">02 <span>//</span> INTERACTIVE TRIAL</p>
+          <h2 class="section-title" id="trialTitle">The System is listening.<br /><em>Show it what you can do.</em></h2>
+          <p class="section-lede">Three exercises. One full clear. Tap each quest and watch the HUD answer. This is the same loop that runs in the app, scaled down to a single screen.</p>
+        </header>
+
+        <div class="trial__grid">
+          <div class="trial__copy reveal">
+            <div class="trial__step"><span>01</span><p><strong>Complete a quest.</strong> EXP lands, the stat tied to it rises, and the bar moves.</p></div>
+            <div class="trial__step"><span>02</span><p><strong>Clear all three.</strong> The System adds the 10% full-clear bonus automatically.</p></div>
+            <div class="trial__step"><span>03</span><p><strong>Watch the hunter change.</strong> Level up. Rank recalibrates. Titles unlock at the right threshold.</p></div>
+            <div class="trial__hint">
+              <svg class="icon"><use href="#i-bolt"/></svg>
+              <p>This trial is a demo. In the app, EXP comes from the reps you actually log — not taps.</p>
+            </div>
+          </div>
+
+          <div class="system-panel console reveal" id="demoConsole">
+            <div class="console__top">
+              <span class="console__title"><i class="live-dot"></i> SYSTEM // DAILY QUEST</span>
+              <button class="console__reset" id="demoReset" type="button">RESET <span aria-hidden="true">↺</span></button>
+            </div>
+
+            <div class="console__hunter">
+              <div class="console__avatar">Y</div>
+              <div class="console__identity">
+                <p class="micro muted">HUNTER</p>
+                <h3 id="demoRank">E-RANK</h3>
+              </div>
+              <div class="console__level"><span>LV.</span><strong id="demoLevel">01</strong></div>
+            </div>
+
+            <div class="exp-meter">
+              <div class="exp-meter__meta"><span>EXP</span><span id="demoExpText">0 / 100</span></div>
+              <div class="exp-meter__track"><i id="demoExpFill"></i></div>
+            </div>
+
+            <div class="console__quests" id="demoQuests">
+              <button class="trial-quest" type="button" data-exp="450" data-stat="strength" data-gain="6" aria-pressed="false">
+                <span class="trial-quest__check"><svg class="icon"><use href="#i-check"/></svg></span>
+                <span class="trial-quest__body"><strong>Push-ups</strong><small>50 reps · Strength</small></span>
+                <span class="trial-quest__exp">+450 EXP</span>
+              </button>
+              <button class="trial-quest" type="button" data-exp="520" data-stat="endurance" data-gain="5" aria-pressed="false">
+                <span class="trial-quest__check"><svg class="icon"><use href="#i-check"/></svg></span>
+                <span class="trial-quest__body"><strong>5 km run</strong><small>Zone 2 · Endurance</small></span>
+                <span class="trial-quest__exp">+520 EXP</span>
+              </button>
+              <button class="trial-quest" type="button" data-exp="620" data-stat="vitality" data-gain="4" aria-pressed="false">
+                <span class="trial-quest__check"><svg class="icon"><use href="#i-check"/></svg></span>
+                <span class="trial-quest__body"><strong>Plank hold</strong><small>5 minutes · Vitality</small></span>
+                <span class="trial-quest__exp">+620 EXP</span>
+              </button>
+            </div>
+
+            <div class="console__bonus" id="demoBonus">
+              <span><svg class="icon"><use href="#i-bolt"/></svg> FULL-CLEAR BONUS</span>
+              <strong id="demoBonusValue">+10%</strong>
+              <small id="demoBonusState">Locked until all three quests are complete.</small>
+            </div>
+
+            <div class="console__log" id="demoLog" role="status" aria-live="polite">
+              <span class="console__log-prompt">&gt;</span> System ready. Complete a quest.
+            </div>
+
+            <div class="console__stats" id="demoStats" aria-label="Hunter stats">
+              <span data-stat-chip="strength"><i style="--c:#FF6B6B"></i>STR <b>10</b></span>
+              <span data-stat-chip="agility"><i style="--c:#00BCD4"></i>AGI <b>10</b></span>
+              <span data-stat-chip="endurance"><i style="--c:#4CAF50"></i>END <b>10</b></span>
+              <span data-stat-chip="intelligence"><i style="--c:#AB47BC"></i>INT <b>10</b></span>
+              <span data-stat-chip="vitality"><i style="--c:#FF9800"></i>VIT <b>10</b></span>
+            </div>
+
+            <div class="level-flash" id="levelFlash" aria-hidden="true">
+              <span>LEVEL UP</span>
+              <strong id="levelFlashText">LEVEL 02</strong>
+            </div>
+            <div class="title-flash" id="titleFlash" aria-hidden="true">
+              <span>TITLE UNLOCKED</span>
+              <strong>ARISE</strong>
+            </div>
+
+            <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--tr"></div>
+            <div class="panel-corner panel-corner--bl"></div><div class="panel-corner panel-corner--br"></div>
+          </div>
+        </div>
+        <p class="trial__foot reveal">Reached level <span id="demoPeekLevel">01</span> so far. The full app goes to <strong>99</strong>.</p>
+      </div>
+    </section>
+
+    <!-- SYSTEM / FEATURES -->
+    <section class="section features" id="system" aria-labelledby="featuresTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">03 <span>//</span> THE SYSTEM</p>
+          <h2 class="section-title" id="featuresTitle">Everything a hunter needs.<br /><em>Nothing they don&rsquo;t.</em></h2>
+          <p class="section-lede">No social feed. No streak-shaming push notifications. No ads for supplements. Just the tools that turn training into a visible ascent.</p>
+        </header>
+
+        <div class="bento">
+          <article class="feature feature--wide spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-target"/></svg></span>
+              <span class="feature__num">01</span>
+            </div>
+            <h3>Daily quests that know your plan</h3>
+            <p>Active plans whose repeat days include today become quests automatically. Exercises, target volume, EXP and penalty — all defined once, surfaced when it matters.</p>
+            <div class="feature__mock quest-mock" aria-hidden="true">
+              <div class="quest-mock__row"><span class="q-dot done"></span><span>Upper Body / Day 04</span><b>3 / 4</b><i style="--w: 75%"></i></div>
+              <div class="quest-mock__row"><span class="q-dot"></span><span>Run Club / Easy 5K</span><b>0 / 3</b><i style="--w: 12%"></i></div>
+              <div class="quest-mock__row"><span class="q-dot done"></span><span>Mobility / Reset</span><b>6 / 6</b><i style="--w: 100%"></i></div>
+            </div>
+          </article>
+
+          <article class="feature spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-bolt"/></svg></span>
+              <span class="feature__num">02</span>
+            </div>
+            <h3>Live sessions</h3>
+            <p>Log the reps, weight, distance and time you actually did. Partial sessions still earn EXP. Full clears earn the bonus.</p>
+            <div class="feature__formula"><span>10%</span> FULL-CLEAR BONUS</div>
+          </article>
+
+          <article class="feature spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-book"/></svg></span>
+              <span class="feature__num">03</span>
+            </div>
+            <h3>A library that remembers</h3>
+            <p>Exercises with categories, body parts, unit types, personal records, and your own images or video demos.</p>
+            <div class="feature__tags"><span>PR</span><span>GIF</span><span>Search</span><span>Groups</span></div>
+          </article>
+
+          <article class="feature spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-calendar"/></svg></span>
+              <span class="feature__num">04</span>
+            </div>
+            <h3>Plans with teeth</h3>
+            <p>Repeat days, per-plan penalties, activate or pause. Edit a plan and today&rsquo;s pending quests reset with it.</p>
+            <div class="feature__week" aria-hidden="true"><span>M</span><span class="on">T</span><span>W</span><span class="on">T</span><span>F</span><span class="on">S</span><span>S</span></div>
+          </article>
+
+          <article class="feature spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-dumbbell"/></svg></span>
+              <span class="feature__num">05</span>
+            </div>
+            <h3>Martial arts &amp; skills</h3>
+            <p>A separate proficiency track for every art. Link skills to exercises and let the work feed both.</p>
+            <div class="feature__belt" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="feature feature--wide spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-trophy"/></svg></span>
+              <span class="feature__num">06</span>
+            </div>
+            <h3>Challenges, not vibes</h3>
+            <p>Pick a date window and a volume goal. Svacraft scores it from the workouts you already logged — no double-entry, no honour system, no guessing.</p>
+            <div class="feature__challenge" aria-hidden="true">
+              <div><span>REPS</span><strong>412 / 600</strong><i style="--w: 68%"></i></div>
+              <div><span>DISTANCE</span><strong>38.4 / 60 km</strong><i style="--w: 64%"></i></div>
+              <div><span>TIME</span><strong>260 / 400 min</strong><i style="--w: 65%"></i></div>
+              <span class="challenge-chip">ACTIVE · 11 DAYS LEFT</span>
+            </div>
+          </article>
+
+          <article class="feature spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-play"/></svg></span>
+              <span class="feature__num">07</span>
+            </div>
+            <h3>Tutorials &amp; notes</h3>
+            <p>Keep video and image guidance next to the movement. Add notes, descriptions and tags.</p>
+            <div class="feature__play"><svg class="icon"><use href="#i-play"/></svg><span>FORM BEFORE EGO</span></div>
+          </article>
+
+          <article class="feature spotlight reveal">
+            <div class="feature__head">
+              <span class="feature__icon"><svg class="icon"><use href="#i-database"/></svg></span>
+              <span class="feature__num">08</span>
+            </div>
+            <h3>Backup &amp; restore</h3>
+            <p>Export the entire database to JSON and import it with validation. Your ledger is portable.</p>
+            <div class="feature__json" aria-hidden="true">{ "hunter": "you", "exp": 12480, "titles": 7 }</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP SCREENS -->
+    <section class="section screens" id="screens" aria-labelledby="screensTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">04 <span>//</span> THE APP</p>
+          <h2 class="section-title" id="screensTitle">Real screens.<br /><em>Real progression.</em></h2>
+          <p class="section-lede">These are captures from the actual Svacraft app — registration, System Status, plans, daily quests, exercises, the Dojo and challenges. No mockups. No concept art. Craft Yourself, screen by screen.</p>
+        </header>
+
+        <div class="screens__gallery reveal" id="screenGallery">
+          <div class="screens__device-col">
+            <div class="screens__device" id="screenStage" tabindex="0" role="group" aria-roledescription="carousel" aria-label="App screenshots. Use the previous and next buttons or arrow keys.">
+              <div class="screens__frame">
+                <span class="screens__speaker" aria-hidden="true"></span>
+                <img class="screens__image" id="screenImage" src="assets/screenshots/registration-identity.jpg" alt="Svacraft registration screen asking for hunter name and age" width="630" height="1400" />
+              </div>
+              <span class="screens__glow" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="screens__panel system-panel">
+            <div class="screens__panel-top">
+              <p class="eyebrow eyebrow--small"><span id="screenIndex">01</span> <span>/ 11</span> <span>//</span> <span id="screenCategory">REGISTRATION</span></p>
+              <span class="status-live"><i></i> LIVE CAPTURE</span>
+            </div>
+            <div class="screens__caption" id="screenCaption" aria-live="polite">
+              <h3 id="screenTitle">Identity protocol</h3>
+              <p id="screenDesc">The first launch asks only what the System needs: hunter name and age. No email, no password, no account.</p>
+            </div>
+            <div class="screens__controls">
+              <button class="screens__nav" id="screenPrev" type="button">
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg> Prev
+              </button>
+              <div class="screens__dots" id="screenDots" role="group" aria-label="Screenshot pagination"></div>
+              <button class="screens__nav" id="screenNext" type="button">
+                Next <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+              </button>
+            </div>
+            <p class="screens__hint">Use <kbd>←</kbd> <kbd>→</kbd> or swipe the screen.</p>
+            <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--br"></div>
+          </div>
+        </div>
+
+        <div class="screens__thumbs reveal" id="screenThumbs" role="tablist" aria-label="Choose a screenshot">
+          <button class="screen-thumb is-active" type="button" role="tab" aria-selected="true" data-index="0" data-src="assets/screenshots/registration-identity.jpg" data-alt="Svacraft registration screen asking for hunter name and age" data-category="REGISTRATION" data-title="Identity protocol" data-desc="The first launch asks only what the System needs: hunter name and age. No email, no password, no account.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/registration-identity.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Identity</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="1" data-src="assets/screenshots/registration-summary.jpg" data-alt="Svacraft registration summary showing Level 1, E-Rank and all starting stats at 10" data-category="REGISTRATION" data-title="Registration summary" data-desc="Confirm the record before it is forged: name, age, weight, height — Level 1, E-Rank, and every starting stat at 10.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/registration-summary.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Summary</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="2" data-src="assets/screenshots/dashboard.jpg" data-alt="Svacraft System Status dashboard with EXP, five attributes and today's quests" data-category="SYSTEM STATUS" data-title="System Status" data-desc="The dashboard. Hunter identity, title, EXP, all five attributes, dojo standing and today&rsquo;s quests on one screen.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/dashboard.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Status</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="3" data-src="assets/screenshots/daily-quests.jpg" data-alt="Svacraft Today's Quests screen" data-category="DAILY QUESTS" data-title="Today&rsquo;s quests" data-desc="Plans whose repeat day matches today surface as quests automatically. Open one, log the work, and close it out.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/daily-quests.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Quests</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="4" data-src="assets/screenshots/plan-new.jpg" data-alt="Svacraft new plan form" data-category="PLANS" data-title="Build a plan" data-desc="Create a plan with repeat days, exercises, target volume, EXP and a penalty for the days you skip.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/plan-new.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">New plan</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="5" data-src="assets/screenshots/exercise-new.jpg" data-alt="Svacraft new exercise form" data-category="EXERCISES" data-title="Add an exercise" data-desc="Define the movement once: category, body part, unit type, stat reward, notes, images and video.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/exercise-new.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">New exercise</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="6" data-src="assets/screenshots/exercise-library.jpg" data-alt="Svacraft exercise library list" data-category="EXERCISES" data-title="The library" data-desc="Search and filter every movement you have saved. Personal records and media stay attached to the exercise.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/exercise-library.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Library</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="7" data-src="assets/screenshots/dojo.jpg" data-alt="Svacraft Dojo martial arts list" data-category="DOJO" data-title="The Dojo" data-desc="Martial arts live on their own track. Open an art to see its skills, sessions and belt progress.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/dojo.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Dojo</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="8" data-src="assets/screenshots/dojo-detail.jpg" data-alt="Svacraft martial art detail with belt ladder" data-category="DOJO" data-title="Martial art detail" data-desc="Inside an art: proficiency level, linked skills and the full belt ladder from White to Black.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/dojo-detail.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Art detail</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="9" data-src="assets/screenshots/challenges.jpg" data-alt="Svacraft challenges list" data-category="CHALLENGES" data-title="Challenges" data-desc="Set a date window and volume goals. Svacraft scores the attempt from workouts already in the quest log.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/challenges.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Challenges</span>
+          </button>
+          <button class="screen-thumb" type="button" role="tab" aria-selected="false" data-index="10" data-src="assets/screenshots/challenge-detail.jpg" data-alt="Svacraft challenge detail with reps, distance and time goals" data-category="CHALLENGES" data-title="Live challenge" data-desc="A challenge in progress: days remaining, reps, distance and time against the target — plus the daily pace required.">
+            <span class="screen-thumb__img"><img src="assets/screenshots/challenge-detail.jpg" alt="" loading="lazy" width="630" height="1400" /></span>
+            <span class="screen-thumb__label">Challenge</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RANKS -->
+    <section class="section ranks" id="ranks" aria-labelledby="ranksTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">05 <span>//</span> RANK PROGRESSION</p>
+          <h2 class="section-title" id="ranksTitle">Eight ranks.<br /><em>One direction.</em></h2>
+          <p class="section-lede">Your rank advances automatically when you reach the level requirement. No application. No gatekeeper. The System reads the ledger.</p>
+        </header>
+
+        <div class="ranks__grid">
+          <div class="rank-detail system-panel reveal" id="rankDetail" style="--rank-color:#9E9E9E">
+            <div class="rank-detail__top">
+              <p class="eyebrow eyebrow--small">RANK // <span id="rankIndex">01</span></p>
+              <span class="rank-detail__status" id="rankStatus"><i></i> CURRENT</span>
+            </div>
+            <div class="rank-detail__letter" id="rankLetter">E</div>
+            <h3 id="rankName">E-Rank Hunter</h3>
+            <p class="rank-detail__desc" id="rankDesc">The beginning. The System acknowledges your existence. Everything from here is earned.</p>
+            <div class="rank-detail__req"><span>UNLOCKED AT</span><strong>LEVEL <span id="rankLevel">1</span></strong></div>
+            <div class="rank-detail__next" id="rankNext">Next: D-Rank Hunter at level 10</div>
+            <div class="rank-detail__glow" aria-hidden="true"></div>
+            <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--br"></div>
+          </div>
+
+          <div class="rank-track reveal" id="rankTrack" role="group" aria-label="Select a rank to inspect">
+            <button class="rank-card is-active" type="button" data-rank-index="0" style="--rank-color:#9E9E9E" aria-pressed="true">
+              <span class="rank-card__letter">E</span><span class="rank-card__info"><strong>E-Rank</strong><small>LV. 1</small></span><span class="rank-card__mark">YOU</span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="1" style="--rank-color:#4CAF50" aria-pressed="false">
+              <span class="rank-card__letter">D</span><span class="rank-card__info"><strong>D-Rank</strong><small>LV. 10</small></span><span class="rank-card__mark"></span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="2" style="--rank-color:#2196F3" aria-pressed="false">
+              <span class="rank-card__letter">C</span><span class="rank-card__info"><strong>C-Rank</strong><small>LV. 20</small></span><span class="rank-card__mark"></span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="3" style="--rank-color:#9C27B0" aria-pressed="false">
+              <span class="rank-card__letter">B</span><span class="rank-card__info"><strong>B-Rank</strong><small>LV. 35</small></span><span class="rank-card__mark"></span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="4" style="--rank-color:#FF9800" aria-pressed="false">
+              <span class="rank-card__letter">A</span><span class="rank-card__info"><strong>A-Rank</strong><small>LV. 50</small></span><span class="rank-card__mark"></span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="5" style="--rank-color:#FFD700" aria-pressed="false">
+              <span class="rank-card__letter">S</span><span class="rank-card__info"><strong>S-Rank</strong><small>LV. 70</small></span><span class="rank-card__mark"></span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="6" style="--rank-color:#FF6B6B" aria-pressed="false">
+              <span class="rank-card__letter">SS</span><span class="rank-card__info"><strong>SS-Rank</strong><small>LV. 90</small></span><span class="rank-card__mark"></span>
+            </button>
+            <button class="rank-card" type="button" data-rank-index="7" style="--rank-color:#00F5FF" aria-pressed="false">
+              <span class="rank-card__letter">N</span><span class="rank-card__info"><strong>National</strong><small>LV. 99</small></span><span class="rank-card__mark"></span>
+            </button>
+          </div>
+        </div>
+        <p class="ranks__note reveal">Rank colours climb a full spectrum — grey to green to blue to violet to orange to gold to coral to cyan. You can see the ascent from across the room.</p>
+      </div>
+    </section>
+
+    <!-- CODEX -->
+    <section class="section codex" id="codex" aria-labelledby="codexTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow">06 <span>//</span> THE HUNTER&rsquo;S CODEX</p>
+          <h2 class="section-title" id="codexTitle">The proof is in the ledger.<br /><em>Here&rsquo;s what it records.</em></h2>
+          <p class="section-lede">Five stats. Twelve titles. Nine belts. Every one of them tied to something you did, not something you bought.</p>
+        </header>
+
+        <!-- STATS -->
+        <div class="stats" id="stats">
+          <div class="stats__copy reveal">
+            <p class="eyebrow eyebrow--small">06.1 <span>//</span> ATTRIBUTES</p>
+            <h3>Five ways to grow.</h3>
+            <p>Each exercise feeds a stat. Strength, Agility, Endurance, Intelligence and Vitality rise from the work you log. The radar below is the demo hunter from the trial — complete the quests above and watch it change.</p>
+            <ul class="stat-list" id="statList">
+              <li data-stat-row="strength"><span class="stat-dot" style="--c:#FF6B6B"></span><span class="stat-name">Strength</span><span class="stat-bar"><i></i></span><b>10</b></li>
+              <li data-stat-row="agility"><span class="stat-dot" style="--c:#00BCD4"></span><span class="stat-name">Agility</span><span class="stat-bar"><i></i></span><b>10</b></li>
+              <li data-stat-row="endurance"><span class="stat-dot" style="--c:#4CAF50"></span><span class="stat-name">Endurance</span><span class="stat-bar"><i></i></span><b>10</b></li>
+              <li data-stat-row="intelligence"><span class="stat-dot" style="--c:#AB47BC"></span><span class="stat-name">Intelligence</span><span class="stat-bar"><i></i></span><b>10</b></li>
+              <li data-stat-row="vitality"><span class="stat-dot" style="--c:#FF9800"></span><span class="stat-name">Vitality</span><span class="stat-bar"><i></i></span><b>10</b></li>
+            </ul>
+            <a class="text-link" href="#trial">Run the trial to raise them <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="radar-wrap reveal">
+            <svg id="radar" viewBox="0 0 420 400" role="img" aria-label="Radar chart of the demo hunter's five stats"></svg>
+            <div class="radar-corner radar-corner--tl"></div><div class="radar-corner radar-corner--tr"></div>
+            <div class="radar-corner radar-corner--bl"></div><div class="radar-corner radar-corner--br"></div>
+          </div>
+        </div>
+
+        <!-- TITLES -->
+        <div class="titles" id="titles">
+          <div class="collection-head reveal">
+            <div>
+              <p class="eyebrow eyebrow--small">06.2 <span>//</span> TITLES</p>
+              <h3>Earned, never equipped.</h3>
+            </div>
+            <p class="collection-count"><span id="earnedCount">1</span> / 12 EARNED</p>
+          </div>
+          <div class="title-grid" id="titleGrid">
+            <article class="title-card is-earned" data-title="Iron Will" data-requires="1">
+              <span class="title-card__sigil">IW</span>
+              <div><h4>Iron Will</h4><p>Completed your very first workout.</p><span class="title-card__req">LEVEL 1</span></div>
+              <span class="title-card__state">EARNED</span>
+            </article>
+            <article class="title-card" data-title="Arise" data-requires="5">
+              <span class="title-card__sigil">AR</span>
+              <div><h4>Arise</h4><p>Reached Level 5. Growth acknowledged.</p><span class="title-card__req">LEVEL 5</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Shadow Soldier" data-requires="10">
+              <span class="title-card__sigil">SS</span>
+              <div><h4>Shadow Soldier</h4><p>Reached Level 10. No longer a bystander.</p><span class="title-card__req">LEVEL 10</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Double Dungeon" data-requires="20">
+              <span class="title-card__sigil">DD</span>
+              <div><h4>Double Dungeon</h4><p>Reached Level 20. You survived.</p><span class="title-card__req">LEVEL 20</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Monarch's Gaze" data-requires="35">
+              <span class="title-card__sigil">MG</span>
+              <div><h4>Monarch&rsquo;s Gaze</h4><p>Reached Level 35. Lesser hunters step aside.</p><span class="title-card__req">LEVEL 35</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Shadow Monarch" data-requires="50">
+              <span class="title-card__sigil">SM</span>
+              <div><h4>Shadow Monarch</h4><p>Reached Level 50. You stand alone.</p><span class="title-card__req">LEVEL 50</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Absolute Being" data-requires="70">
+              <span class="title-card__sigil">AB</span>
+              <div><h4>Absolute Being</h4><p>Reached Level 70. The System bows.</p><span class="title-card__req">LEVEL 70</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Strength Apostle" data-stat="strength" data-stat-req="50">
+              <span class="title-card__sigil">SA</span>
+              <div><h4>Strength Apostle</h4><p>Strength reached 50.</p><span class="title-card__req">STR 50</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Wind Dancer" data-stat="agility" data-stat-req="50">
+              <span class="title-card__sigil">WD</span>
+              <div><h4>Wind Dancer</h4><p>Agility reached 50.</p><span class="title-card__req">AGI 50</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Iron Body" data-stat="endurance" data-stat-req="50">
+              <span class="title-card__sigil">IB</span>
+              <div><h4>Iron Body</h4><p>Endurance reached 50.</p><span class="title-card__req">END 50</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Brilliant Mind" data-stat="intelligence" data-stat-req="50">
+              <span class="title-card__sigil">BM</span>
+              <div><h4>Brilliant Mind</h4><p>Intelligence reached 50.</p><span class="title-card__req">INT 50</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+            <article class="title-card" data-title="Undying" data-stat="vitality" data-stat-req="50">
+              <span class="title-card__sigil">UN</span>
+              <div><h4>Undying</h4><p>Vitality reached 50.</p><span class="title-card__req">VIT 50</span></div>
+              <span class="title-card__state">LOCKED</span>
+            </article>
+          </div>
+          <p class="codex-note reveal">Titles are derived from your live hunter snapshot — level and stats, not click-throughs. The trial above unlocks <strong>Arise</strong> at level 5. Try it.</p>
+        </div>
+
+        <!-- BELTS -->
+        <div class="belts" id="belts">
+          <div class="belts__copy reveal">
+            <p class="eyebrow eyebrow--small">06.3 <span>//</span> MARTIAL ARTS</p>
+            <h3>A second ladder.</h3>
+            <p>Every martial art carries its own proficiency track and a belt ladder that starts at White and ends at Black. Select a belt to inspect the threshold. The colour is the belt name — no abstraction.</p>
+            <div class="belt-detail" id="beltDetail">
+              <span class="belt-detail__swatch" id="beltSwatch" style="--c:#E8F4FD"></span>
+              <div>
+                <p class="micro muted">PROFICIENCY LEVEL <span id="beltLevel">1</span>+</p>
+                <h4 id="beltName">White Belt</h4>
+                <p id="beltDesc">The first knot. Every master started here.</p>
+              </div>
+            </div>
+            <p class="belts__next" id="beltNext">Next: Yellow Belt at proficiency level 5</p>
+          </div>
+          <div class="belt-rack reveal" id="beltRack" role="group" aria-label="Martial arts belts">
+            <button class="belt" type="button" data-belt-index="0" style="--c:#E8F4FD" aria-pressed="true"><span class="belt__knot"></span><span class="belt__name">White</span><span class="belt__lvl">LV. 1</span></button>
+            <button class="belt" type="button" data-belt-index="1" style="--c:#FFD700" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Yellow</span><span class="belt__lvl">LV. 5</span></button>
+            <button class="belt" type="button" data-belt-index="2" style="--c:#FF9800" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Orange</span><span class="belt__lvl">LV. 10</span></button>
+            <button class="belt" type="button" data-belt-index="3" style="--c:#4CAF50" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Green</span><span class="belt__lvl">LV. 16</span></button>
+            <button class="belt" type="button" data-belt-index="4" style="--c:#2196F3" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Blue</span><span class="belt__lvl">LV. 24</span></button>
+            <button class="belt" type="button" data-belt-index="5" style="--c:#9C27B0" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Purple</span><span class="belt__lvl">LV. 34</span></button>
+            <button class="belt" type="button" data-belt-index="6" style="--c:#8D6E63" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Brown</span><span class="belt__lvl">LV. 46</span></button>
+            <button class="belt" type="button" data-belt-index="7" style="--c:#FF4757" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Red</span><span class="belt__lvl">LV. 60</span></button>
+            <button class="belt" type="button" data-belt-index="8" style="--c:#5A6B85" aria-pressed="false"><span class="belt__knot"></span><span class="belt__name">Black</span><span class="belt__lvl">LV. 75</span></button>
+          </div>
+        </div>
+
+        <!-- CHALLENGES -->
+        <div class="challenge" id="challenges">
+          <div class="challenge__copy reveal">
+            <p class="eyebrow eyebrow--small">06.4 <span>//</span> CHALLENGES</p>
+            <h3>A window. A target. No excuses.</h3>
+            <p>Set a start and end date, then choose the volume you want to hit. Svacraft scores the challenge from workouts you already logged in the quest log. It is not another checklist — it is a verdict.</p>
+            <ul class="check-list">
+              <li><svg class="icon"><use href="#i-check"/></svg> Per-workout volume goals</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Overshoot and remaining amounts</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Automatic success / failure verdict</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Required daily pace</li>
+            </ul>
+          </div>
+          <div class="challenge-card system-panel reveal">
+            <div class="challenge-card__top">
+              <span class="status-live"><i></i> ACTIVE</span>
+              <span class="challenge-card__timer" id="challengeTimer">11d 06h 42m</span>
+            </div>
+            <p class="micro muted">PERSONAL CHALLENGE</p>
+            <h3>The Iron Month</h3>
+            <p class="challenge-card__sub">21 days · 3 volume goals</p>
+            <div class="challenge-goal">
+              <div><span>Reps</span><strong>412 / 600</strong></div>
+              <div class="challenge-bar"><i style="--w:69%"></i></div>
+            </div>
+            <div class="challenge-goal">
+              <div><span>Distance</span><strong>38.4 / 60 km</strong></div>
+              <div class="challenge-bar"><i style="--w:64%"></i></div>
+            </div>
+            <div class="challenge-goal">
+              <div><span>Time</span><strong>260 / 400 min</strong></div>
+              <div class="challenge-bar"><i style="--w:65%"></i></div>
+            </div>
+            <div class="challenge-card__foot"><span>ON PACE</span><strong>+38% OVER DAILY TARGET</strong></div>
+            <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--br"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section class="section privacy" id="privacy" aria-labelledby="privacyTitle">
+      <div class="container privacy__grid">
+        <div class="privacy__copy reveal">
+          <p class="eyebrow">07 <span>//</span> THE SEALED GATE</p>
+          <h2 class="section-title" id="privacyTitle">No server.<br /><em>No audience.</em></h2>
+          <p class="section-lede">Svacraft has no accounts, no backend, no analytics and no cloud. Your hunter lives in a local SQLite database on your phone. The only person who can see your progress is the one who earned it.</p>
+          <div class="privacy__pillars">
+            <div><svg class="icon"><use href="#i-lock"/></svg><h3>Local by design</h3><p>Every session, title, note and challenge stays on-device.</p></div>
+            <div><svg class="icon"><use href="#i-shield"/></svg><h3>Zero telemetry</h3><p>No tracking SDKs, no sign-in walls, no data broker handshake.</p></div>
+            <div><svg class="icon"><use href="#i-database"/></svg><h3>Your backup, your call</h3><p>Export the full database to JSON. Restore it with validation.</p></div>
+          </div>
+          <p class="privacy__caveat"><span>Note</span> Because the database is local, uninstalling the app removes it. Export a backup if you plan to switch devices.</p>
+          <div class="privacy__actions reveal">
+            <a class="btn btn--ghost" href="privacy.html">Read the full privacy policy <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+
+        <div class="privacy__visual reveal" aria-hidden="true">
+          <div class="vault">
+            <span class="vault__ring vault__ring--1"></span>
+            <span class="vault__ring vault__ring--2"></span>
+            <span class="vault__ring vault__ring--3"></span>
+            <span class="vault__hex"></span>
+            <svg class="vault__icon icon"><use href="#i-lock"/></svg>
+            <span class="vault__label vault__label--top">LOCAL SQLITE</span>
+            <span class="vault__label vault__label--right">0 CONNECTIONS</span>
+            <span class="vault__label vault__label--bottom">YOUR DEVICE</span>
+            <span class="vault__label vault__label--left">NO ACCOUNT</span>
+            <span class="vault__pulse"></span>
+          </div>
+          <p class="vault__caption">THE GATE STAYS CLOSED</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final" id="arise" aria-labelledby="finalTitle">
+      <div class="final__bg" aria-hidden="true">
+        <span class="final__ring final__ring--1"></span>
+        <span class="final__ring final__ring--2"></span>
+        <span class="final__ring final__ring--3"></span>
+        <span class="final__beam"></span>
+      </div>
+      <div class="container final__inner reveal">
+        <p class="system-note"><span class="pulse-dot"></span> FINAL NOTICE <span class="slash">//</span> THE GATE IS OPEN</p>
+        <h2 id="finalTitle">The System is waiting.</h2>
+        <p class="final__lede">No gate in the sky. No shortcut in the code. Just the next rep, the next quest, the next version of you.</p>
+        <div class="final__actions">
+          <a class="btn btn--primary btn--large" href="#trial">Craft Yourself <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--large" type="button" data-open-install>Get the app</button>
+        </div>
+        <p class="final__micro">NO ACCOUNT · NO SERVER · NO EXCUSES</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Svacraft home">
+          <span class="brand__mark"><img src="assets/logo.png" alt="" width="44" height="44" /></span>
+          <span class="brand__text"><strong>SVACRAFT</strong><small>CRAFT YOURSELF</small></span>
+        </a>
+        <p>A real-life RPG fitness tracker. Built around the work, not the applause.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#story">Story</a>
+        <a href="#system">System</a>
+        <a href="#screens">Screens</a>
+        <a href="#ranks">Ranks</a>
+        <a href="#codex">Codex</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+      <div class="footer__meta">
+        <p><span class="status-light"></span> SYSTEM ONLINE</p>
+        <p>ANDROID · OFFLINE FIRST</p>
+        <p>VERSION 1.0.0</p>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> Svacraft. Craft yourself.</p>
+      <p>An independent project inspired by the System UI from Solo Leveling. Not affiliated with the franchise.</p>
+    </div>
+  </footer>
+
+  <!-- Install modal -->
+  <div class="modal" id="installModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog system-panel" role="dialog" aria-modal="true" aria-labelledby="installTitle" aria-describedby="installDesc">
+      <button class="modal__close" type="button" data-close-modal aria-label="Close dialog"><svg class="icon"><use href="#i-close"/></svg></button>
+      <p class="eyebrow eyebrow--small">DEPLOYMENT <span>//</span> ANDROID</p>
+      <h2 id="installTitle">The gate isn&rsquo;t on a store yet.</h2>
+      <p id="installDesc">Svacraft is a self-contained Expo app. Run it locally or build a standalone APK with the commands below. Node 22.13+ and Android build tooling required.</p>
+
+      <div class="code-block">
+        <div class="code-block__head"><span>RUN IN EXPO GO</span><button type="button" class="copy-btn" data-copy="npm install&#10;npx expo start"><svg class="icon"><use href="#i-copy"/></svg> COPY</button></div>
+        <pre><code>npm install
+npx expo start</code></pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-block__head"><span>BUILD AN APK (EAS)</span><button type="button" class="copy-btn" data-copy="eas build --platform android --profile preview"><svg class="icon"><use href="#i-copy"/></svg> COPY</button></div>
+        <pre><code>eas build --platform android --profile preview</code></pre>
+      </div>
+
+      <p class="modal__note"><svg class="icon"><use href="#i-shield"/></svg> Offline by design. No account required. Export a backup before uninstalling.</p>
+      <div class="modal__actions">
+        <a class="btn btn--primary btn--small" href="#trial" data-close-modal>Try the System first</a>
+        <button class="btn btn--ghost btn--small" type="button" data-close-modal>Close</button>
+      </div>
+      <div class="panel-corner panel-corner--tl"></div><div class="panel-corner panel-corner--br"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <style>.boot,.cursor-glow,.scroll-progress{display:none!important}.reveal{opacity:1!important;transform:none!important}</style>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
